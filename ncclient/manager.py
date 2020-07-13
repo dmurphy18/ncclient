@@ -126,6 +126,8 @@ def connect_ssh(*args, **kwds):
     """
     # Extract device parameter and manager parameter dictionaries, if they were passed into this function.
     # Remove them from kwds (which should keep only session.connect() parameters).
+    log.debug("DGM nclient connect_ssh args '{0}', kwds '{1}'".format(args, kwds))
+
     device_params = _extract_device_params(kwds)
     manager_params = _extract_manager_params(kwds)
 
@@ -147,6 +149,8 @@ def connect_ssh(*args, **kwds):
 
 
 def connect_ioproc(*args, **kwds):
+    log.debug("DGM nclient connect_ioproc args '{0}', kwds '{1}'".format(args, kwds))
+
     device_params = _extract_device_params(kwds)
     manager_params = _extract_manager_params(kwds)
 
@@ -166,6 +170,8 @@ def connect_ioproc(*args, **kwds):
 
 
 def connect(*args, **kwds):
+    log.debug("DGM nclient connect args '{0}', kwds '{1}'".format(args, kwds))
+
     if "host" in kwds:
         host = kwds["host"]
         device_params = kwds.get('device_params', {})
